@@ -1,4 +1,2 @@
 # Add your project dependencies here, one per line.
 
-pyglet == 2.1.11
-pygame == 2.6.1
