@@ -1,2 +1,4 @@
-# Add your project dependencies here, one per line.
 
+moderngl==5.10.0
+glfw==2.7.0
+numpy==1.26.4
