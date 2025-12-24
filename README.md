@@ -1,74 +1,74 @@
-## Kerman Gae Engine
+# Kerman Game Engine
 
-**Modules to be implemented:**
+**Kerman** is a modular game engine currently in development, designed with a focus on clean architecture and strict separation of concerns.
 
-<ol>
+## 🏗 Architecture
 
-<li>Core</li>
-- [] Game loop (update → render → sleep)
-- [] Time management (delta time, FPS cap)
-- [] Engine initialization / shutdown
-- [] Global configuration
-- [] Math
-- [] Logging
-- [] Debug tools (FPS counter, bounding boxes)
-- [] Serialization (save/load)
+We follow a **top-down layered architecture**. From top to bottom it goes like this :
 
-<li>GUI</li>
-- [] Window creation
-- [] Resolution & fullscreen handling
-- [] Input focus, resize events
+1. **Game Code** (User Project)
+2. **Engine API**
+3. **Systems** (Render, Physics, Input, Audio)
+4. **Platform / Libraries**
 
-<li>Renderer</li>
-- [] Renderer abstraction (don’t hardcode OpenGL calls everywhere)
-- [] Camera system
-- [] Sprite batching
-- [] Layers / draw order
-- [] Shaders (optional at first)
+---
 
-<li>Input System</li>
-- [] Keyboard
-- [] Mouse
-- [] Gamepad (later)
-- [] Action mapping (e.g. “Jump” → Space / Button A)
+## 🚀 Roadmap
 
-<li>Scene Management</li>
-- [] Scene loading/unloading
-- [] Scene transitions
-- [] Entity registration
+### Core
+- [ ] Game loop (update → render → sleep)
+- [ ] Time management (delta time, FPS cap)
+- [ ] Engine initialization / shutdown
+- [ ] Global configuration
+- [ ] Math utilities
+- [ ] Logging
+- [ ] Debug tools (FPS counter, bounding boxes)
+- [ ] Serialization (save/load)
 
-<li>Entity System</li>
-- [] Entity ID management
-- [] Entity lifecycle (create, destroy, enable/disable)
+### GUI / Windowing
+- [ ] Window creation
+- [ ] Resolution & fullscreen handling
+- [ ] Input focus, resize events
 
-<li>Physics Engine</li>
-- [] AABB collisions
-- [] Spatial partitioning (grid, quadtree)
-- [] Basic response (stop, slide)
-- [] Rigid bodies
-- [] Forces
+### Renderer
+- [ ] Renderer abstraction (avoiding hardcoded OpenGL calls)
+- [ ] Camera system
+- [ ] Sprite batching
+- [ ] Layers / draw order
+- [ ] Shaders (planned)
 
-<li>Audio System</li>
-- [] Sound effects
-- [] Music streaming
-- [] Volume groups
-- [] Audio channels
+### Input System
+- [ ] Keyboard
+- [ ] Mouse
+- [ ] Gamepad (planned)
+- [ ] Action mapping (e.g., “Jump” → Space / Button A)
 
-<li>Asset Management</li>
-- [] Load textures, sounds, fonts
-- [] Cache assets
-- [] Reference counting
-- [] Hot reloading
+### Scene Management
+- [ ] Scene loading/unloading
+- [ ] Scene transitions
+- [ ] Entity registration
 
-</ol>
+### Entity System
+- [ ] Entity ID management
+- [ ] Entity lifecycle (create, destroy, enable/disable)
 
-**This engine is going to have a top-down layered architecture, something like this:**
+### Physics Engine
+- [ ] AABB collisions
+- [ ] Spatial partitioning (grid, quadtree)
+- [ ] Basic response (stop, slide)
+- [ ] Rigid bodies
+- [ ] Forces
 
-Game Code (user project)
------------------------
-Engine API
------------------------
-Systems (Render, Physics, Input, Audio)
------------------------
-Platform / Libraries
------------------------
+### Audio System
+- [ ] Sound effects
+- [ ] Music streaming
+- [ ] Volume groups
+- [ ] Audio channels
+
+### Asset Management
+- [ ] Load textures, sounds, fonts
+- [ ] Asset caching
+- [ ] Reference counting
+- [ ] Hot reloading
+
+---
