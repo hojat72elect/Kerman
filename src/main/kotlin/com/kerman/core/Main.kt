@@ -1,5 +1,10 @@
-package com.kerman.core
+package com.kerman.com.kerman.core
 
 fun main() {
-    println("Hello my name is hojat, and this is going to be my game engine.")
+    val name = "Kotlin"
+    println("Hello, $name!")
+
+    for (i in 1..5) {
+        println("i = $i")
+    }
 }
