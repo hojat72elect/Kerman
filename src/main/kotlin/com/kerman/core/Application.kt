@@ -90,8 +90,9 @@ interface Application {
      * it will not immediately finish your application.
      */
     fun exit()
+
+    enum class LogLevel {
+        LOG_NONE, LOG_ERROR, LOG_DEBUG, LOG_INFO
+    }
 }
 
-enum class LogLevel {
-    LOG_NONE, LOG_ERROR, LOG_DEBUG, LOG_INFO
-}
