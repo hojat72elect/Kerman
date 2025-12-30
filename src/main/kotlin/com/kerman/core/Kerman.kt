@@ -1,4 +1,4 @@
-package com.kerman.com.kerman.core
+package com.kerman.core
 
 /**
  * This object was inspired by "com.badlogic.gdx.Gdx".
