@@ -1,5 +1,13 @@
 package com.kerman.core
 
+import com.kerman.core.graphics.Cursor
+import com.kerman.core.graphics.GLES20
+import com.kerman.core.graphics.GLES30
+import com.kerman.core.graphics.GLES31
+import com.kerman.core.graphics.GLES32
+import com.kerman.core.graphics.Pixmap
+import com.kerman.core.graphics.SystemCursor
+
 /**
  * This interface was inspired by "com.badlogic.gdx.Graphics".
  *
@@ -7,4 +15,355 @@ package com.kerman.core
  */
 interface Graphics {
 
+    /**
+     * Returns whether OpenGL ES 3.0 is available. If it is, you can get an instance of [GLES30] via [gles30] to
+     * access OpenGL ES 3.0 functionality. Note that this functionality will only be available if you instructed the
+     * [Application] instance to use OpenGL ES 3.0!
+     *
+     * @return whether OpenGL ES 3.0 is available.
+     */
+    fun isGLES30Available(): Boolean
+
+    /**
+     * Returns whether OpenGL ES 3.1 is available. If it is, you can get an instance of [GLES31] via [gles31] to
+     * access OpenGL ES 3.1 functionality. Note that this functionality will only be available if you instructed the
+     * [Application] instance to use OpenGL ES 3.1!
+     *
+     * @return whether OpenGL ES 3.1 is available.
+     */
+    fun isGLES31Available(): Boolean
+
+    /**
+     * Returns whether OpenGL ES 3.2 is available. If it is, you can get an instance of [GLES32] via [gles32] to
+     * access OpenGL ES 3.2 functionality. Note that this functionality will only be available if you instructed the
+     * [Application] instance to use OpenGL ES 3.2!
+     *
+     * @return whether OpenGL ES 3.2 is available
+     */
+    fun isGL32Available(): Boolean
+
+    /**
+     * The instance of [GLES20], or null; if it's not available.
+     */
+    val gles20: GLES20?
+
+    /**
+     * The instance of [GLES30], or null; if it's not available.
+     */
+    val gles30: GLES30?
+
+    /**
+     * The instance of [GLES31], or null; if it's not available.
+     */
+    val gles31: GLES31?
+
+    /**
+     * The instance of [GLES32], or null; if it's not available.
+     */
+    val gles32: GLES32?
+
+    /**
+     * @return The width of the client area in logical pixels.
+     */
+    fun getWidth(): Int
+
+    /**
+     * @return The height of the client area in logical pixels.
+     */
+    fun getHeight(): Int
+
+    /**
+     * @return The width of the framebuffer in physical pixels.
+     */
+    fun getBackBufferWidth(): Int
+
+    /**
+     * @return The height of the framebuffer in physical pixels.
+     */
+    fun getBackBufferHeight(): Int
+
+    /**
+     * @return The amount of pixels per logical pixel (point).
+     */
+    fun getBackBufferScale(): Float
+
+    /**
+     * @return The inset from the left which avoids display cutouts in logical pixels.
+     */
+    fun getSafeInsetLeft(): Int
+
+    /**
+     * @return The inset from the top which avoids display cutouts in logical pixels.
+     */
+    fun getSafeInsetTop(): Int
+
+    /**
+     * @return The inset from the top which avoids display cutouts in logical pixels.
+     */
+    fun getSafeInsetBottom(): Int
+
+    /**
+     * @return The inset from the right which avoids display cutouts in logical pixels
+     */
+    fun getSafeInsetRight(): Int
+
+    /**
+     * Returns the id of the current frame. The general contract of this method is that the id is incremented only when the
+     * application is in the running state right before calling the [ApplicationListener.render] method. Also, the id of
+     * the first frame is 0; the id of subsequent frames is guaranteed to take increasing values for 2<sup>63</sup>-1 rendering
+     * cycles.
+     *
+     * @return the id of the current frame.
+     */
+    fun getFrameId(): Long
+
+    /**
+     * @return the time span between the current frame and the last frame in seconds.
+     */
+    fun getDeltaTime(): Float
+
+    /**
+     * @return the average number of frames per second.
+     */
+    fun getFramesPerSecond(): Int
+
+    /**
+     * @return the [GraphicsType] of this Graphics instance.
+     */
+    fun getType(): GraphicsType
+
+    /**
+     * @return the [GLVersion] of this Graphics instance.
+     */
+    fun getGLVersion(): GLVersion
+
+    /**
+     * @return the pixels per inch on the x-axis.
+     */
+    fun getPpiX(): Float
+
+    /**
+     * @return the pixels per inch on the y-axis.
+     */
+    fun getPpiY(): Float
+
+    /**
+     * @return the pixels per centimeter on the x-axis.
+     */
+    fun getPpcX(): Float
+
+    /**
+     * @return the pixels per centimeter on the y-axis.
+     */
+    fun getPpcY(): Float
+
+    /**
+     * This is a scaling factor for the Density Independent Pixel unit, following the same conventions as
+     * android.util.DisplayMetrics#density, where one DIP is one pixel on an approximately 160 dpi screen. Thus on a 160dpi screen
+     * this density value will be 1; on a 120 dpi screen it would be .75; etc.
+     *
+     * If the density could not be determined, this returns a default value of 1.
+     *
+     * Depending on the underlying platform implementation this might be a relatively expensive operation. Therefore it should not
+     * be called continuously on each frame.
+     *
+     * @return the Density Independent Pixel factor of the display.
+     */
+    fun getDensity(): Float
+
+    /**
+     * Whether the given backend supports a display mode change via calling [Graphics.setFullscreenMode]
+     *
+     * @return whether display mode changes are supported or not.
+     */
+    fun supportsDisplayModeChange(): Boolean
+
+    /**
+     * @return the primary monitor.
+     */
+    fun getPrimaryMonitor(): Monitor
+
+    /**
+     * @return the monitor the application's window is located on.
+     */
+    fun getMonitor(): Monitor
+
+    /**
+     * @return the currently connected [Monitor]s.
+     */
+    fun getMonitors(): Array<Monitor>
+
+    /**
+     * @return the supported fullscreen [DisplayMode](s) of the monitor our window is on.
+     */
+    fun getDisplayModes(): Array<DisplayMode>
+
+    /**
+     * @return the supported fullscreen [DisplayMode]s of the given [Monitor].
+     */
+    fun getDisplayModes(monitor: Monitor): Array<DisplayMode>
+
+    /**
+     * @return the current [DisplayMode] of the monitor the window is on.
+     */
+    fun getDisplayMode(): DisplayMode
+
+    /**
+     * @return the current [DisplayMode] of the given [Monitor].
+     */
+    fun getDisplayMode(monitor: Monitor): DisplayMode
+
+    /**
+     * Sets the window to full-screen mode.
+     * @param displayMode the display mode.
+     * @return whether the operation succeeded.
+     */
+    fun setFullscreenMode(displayMode: DisplayMode): Boolean
+
+    /**
+     * Sets the window to windowed mode.
+     * @param width  the width in pixels
+     * @param height the height in pixels
+     * @return whether the operation succeeded
+     */
+    fun setWindowedMode(width: Int, height: Int): Boolean
+
+    /**
+     * Sets the title of the window. Ignored on Android.
+     * @param title the title.
+     */
+    fun setTitle(title: String)
+
+    /**
+     * Sets the window decoration as enabled or disabled. On Android, this will enable/disable the menu bar.
+     * Note that immediate behavior of this method may vary depending on the implementation. It may be necessary for the window to
+     * be recreated in order for the changes to take effect. Consult the documentation for the backend in use for more information.
+     * Supported on all desktop backends and on Android (to disable the menu bar).
+     * @param undecorated true if the window border or status bar should be hidden. false otherwise.
+     */
+    fun setUndecorated(undecorated: Boolean)
+
+    /**
+     * Sets whether or not the window should be resizable. Ignored on Android.
+     * Note that immediate behavior of this method may vary depending on the implementation. It may be necessary for the window to
+     * be recreated in order for the changes to take effect. Consult the documentation for the backend in use for more information.
+     * Supported on all desktop backends.
+     */
+    fun setResizable(resizable: Boolean)
+
+    /**
+     * Enable/Disable vsynching. This is a best-effort attempt which might not work on all platforms.
+     * @param vsync vsync enabled or not.
+     */
+    fun setVSync(vsync: Boolean)
+
+    /**
+     * Sets the target framerate for the application when using continuous rendering. Might not work on all platforms. Is not
+     * generally advised to be used on mobile platforms.
+     * @param fps the targeted fps; default differs by platform.
+     */
+    fun setForegroundFPS(fps: Int)
+
+    /**
+     * @return the format of the color, depth and stencil buffer in a [BufferFormat] instance.
+     */
+    fun getBufferFormat(): BufferFormat
+
+    /**
+     * @param extension the extension name
+     * @return whether the extension is supported
+     */
+    fun supportsExtension(extension: String): Boolean
+
+    /**
+     * Whether to render continuously or not. In case rendering is performed non-continuously, the following events will trigger a
+     * redraw:
+     *
+     *  * A call to [.requestRendering]
+     *  * Input events from the touch screen/mouse or keyboard
+     *  * A [Runnable] is posted to the rendering thread via [Application.postRunnable]. In the case of a
+     * multi-window app, all windows will request rendering if a runnable is posted to the application. To avoid this, post a
+     * runnable to the window instead.
+     *
+     * Life-cycle events will also be reported as usual, see [ApplicationListener]. This method can be called from any
+     * thread.
+     */
+    val isContinuousRendering: Boolean
+
+    /**
+     * Requests a new frame to be rendered if the rendering mode is non-continuous. This method can be called from any thread.
+     */
+    fun requestRendering()
+
+    /**
+     * Whether the app is fullscreen or not
+     */
+    fun isFullscreen(): Boolean
+
+    /**
+     * Create a new cursor represented by the [Pixmap]. The Pixmap must be in RGBA8888 format,
+     * width & height must be powers-of-two greater than zero (not necessarily equal) and of a certain minimum size (32x32 is a
+     * safe bet), and alpha transparency must be single-bit (i.e., 0x00 or 0xFF only). This function returns a Cursor object that
+     * can be set as the system cursor by calling [setCursor] .
+     *
+     * @param pixmap   the mouse cursor image as a [Pixmap]
+     * @param xHotspot the x location of the hotspot pixel within the cursor image (origin top-left corner)
+     * @param yHotspot the y location of the hotspot pixel within the cursor image (origin top-left corner)
+     * @return a cursor object that can be used by calling [setCursor] or null if not supported (such as on touch devices).
+     */
+    fun newCursor(pixmap: Pixmap, xHotspot: Int, yHotspot: Int): Cursor?
+
+    /**
+     * Only viable on the lwjgl-backend. Will set the mouse cursor image to
+     * the image represented by the [Cursor]. It is recommended to call this function in the main
+     * render thread, and maximum one time per frame.
+     *
+     * @param cursor the mouse cursor as a [Cursor].
+     */
+    fun setCursor(cursor: Cursor)
+
+    /**
+     * Sets one of the predefined [SystemCursor]s.
+     */
+    fun setSystemCursor(systemCursor: SystemCursor)
+
+    /**
+     * Enumeration describing different types of [Graphics] implementations.
+     */
+    enum class GraphicsType {
+        AndroidGL, LWJGL, LWJGL3, WebGL
+    }
+
+    /**
+     * Describe a fullscreen display mode.
+     * @param width the width in physical pixels.
+     * @param height the height in physical pixels.
+     * @param refreshRate the refresh rate in Hertz.
+     * @param bitsPerPixel the number of bits per pixel, may exclude alpha.
+     */
+    open class DisplayMode protected constructor(@JvmField val width: Int, @JvmField val height: Int, @JvmField val refreshRate: Int, @JvmField val bitsPerPixel: Int) {
+        override fun toString(): String {
+            return width.toString() + "x" + height + ", bpp: " + bitsPerPixel + ", hz: " + refreshRate
+        }
+    }
+
+    /**
+     * Describes a monitor
+     */
+    open class Monitor protected constructor(@JvmField val virtualX: Int, @JvmField val virtualY: Int, val name: String)
+
+    /**
+     * Class describing the bits per pixel, depth buffer precision, stencil precision and number of MSAA samples.
+     *
+     * `r`, `g`, `b`, and `a` are the numbers of bits per color channel.
+     * `depth` and `stencil` represent the number of bits for depth and stencil buffer.
+     * @param samples  number of samples for multi-sample anti-aliasing (MSAA).
+     * @param coverageSampling whether coverage sampling anti-aliasing is used. in that case you have to clear the coverage buffer as well!
+     */
+    class BufferFormat(@JvmField val r: Int, @JvmField val g: Int, @JvmField val b: Int, @JvmField val a: Int, val depth: Int, val stencil: Int, val samples: Int,@JvmField val coverageSampling: Boolean) {
+        override fun toString(): String {
+            return ("r: " + r + ", g: " + g + ", b: " + b + ", a: " + a + ", depth: " + depth + ", stencil: " + stencil
+                    + ", num samples: " + samples + ", coverage sampling: " + coverageSampling)
+        }
+    }
 }
