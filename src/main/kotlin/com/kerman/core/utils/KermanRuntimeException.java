@@ -1,7 +1,9 @@
 package com.kerman.core.utils;
 
 /**
- * Typed runtime exception used throughout libGDX
+ * This class was inspired by "com.badlogic.gdx.utils.GdxRuntimeException".
+ * <p>
+ * Typed runtime exception used throughout Kerman game engine.
  */
 public class KermanRuntimeException extends RuntimeException {
     private static final long serialVersionUID = 6735854402467673117L;
