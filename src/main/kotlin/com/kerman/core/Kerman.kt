@@ -1,5 +1,10 @@
 package com.kerman.core
 
+import com.kerman.core.graphics.GLES20
+import com.kerman.core.graphics.GLES30
+import com.kerman.core.graphics.GLES31
+import com.kerman.core.graphics.GLES32
+
 /**
  * This object was inspired by "com.badlogic.gdx.Gdx".
  *
@@ -11,4 +16,10 @@ object Kerman {
     lateinit var app: Application
     lateinit var graphics: Graphics
     lateinit var audio: Audio
+
+    lateinit var gl: GLES20
+    lateinit var gl20: GLES20
+    lateinit var gl30: GLES30
+    lateinit var gl31: GLES31
+    lateinit var gl32: GLES32
 }
