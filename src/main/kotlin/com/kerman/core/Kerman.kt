@@ -16,7 +16,9 @@ object Kerman {
     lateinit var app: Application
     lateinit var graphics: Graphics
     lateinit var audio: Audio
-
+    lateinit var input: Input
+    lateinit var files: Files
+    lateinit var net: Net
     lateinit var gl: GLES20
     lateinit var gl20: GLES20
     lateinit var gl30: GLES30
