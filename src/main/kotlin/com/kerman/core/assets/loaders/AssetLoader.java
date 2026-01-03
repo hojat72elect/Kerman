@@ -6,6 +6,8 @@ import com.kerman.core.files.FileHandle;
 import com.kerman.core.utils.KermanArray;
 
 /**
+ * Info : this abstract class was inspired by "com.badlogic.gdx.assets.loaders.AssetLoader".
+ * <p>
  * Abstract base class for asset loaders.
  *
  * @param <T> the class of the "asset" that the loader supports.
