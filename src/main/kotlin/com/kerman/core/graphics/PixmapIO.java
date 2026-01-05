@@ -76,10 +76,7 @@ public class PixmapIO {
     static public void writePNG(FileHandle file, Pixmap pixmap) {
         writePNG(file, pixmap, Deflater.DEFAULT_COMPRESSION, false);
     }
-
-    /**
-     *
-     */
+    
     static private class CIM {
         static private final int BUFFER_SIZE = 32000;
         static private final byte[] writeBuffer = new byte[BUFFER_SIZE];
