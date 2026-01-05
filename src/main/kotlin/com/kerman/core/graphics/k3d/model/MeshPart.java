@@ -8,7 +8,7 @@ import com.kerman.core.math.Vector3;
 import com.kerman.core.math.collision.BoundingBox;
 
 /**
- * Info : This class was inspired by "com.badlogic.gdx.graphics.g3d.model".
+ * Info : This class was inspired by "com.badlogic.gdx.graphics.g3d.model.MeshPart".
  * <p>
  * A MeshPart is composed of a subset of vertices of a {@link Mesh}, along with the primitive type. The vertices subset is
  * described by an offset and size. When the mesh is indexed (which is when {@link Mesh#getNumIndices()} > 0), then the
