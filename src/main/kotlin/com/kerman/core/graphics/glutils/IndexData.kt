@@ -5,7 +5,7 @@ import java.nio.ShortBuffer
 
 /**
  * Info : This interface was inspired by "com.badlogic.gdx.graphics.glutils.IndexData".
- * An IndexData instance holds index data. Can be either a plain short buffer or an OpenGL buffer object.
+ * An [IndexData] instance holds index data. Can be either a plain short buffer or an OpenGL buffer object.
  */
 interface IndexData : Disposable {
 
