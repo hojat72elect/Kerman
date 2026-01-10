@@ -76,7 +76,7 @@ abstract class Pool<T> @JvmOverloads constructor(initialCapacity: Int = 16, @Jvm
      * The pool does not check if an object is already freed, so the same object must not be freed multiple times.
      * @see .free
      */
-    open fun freeAll(pooledObjects: Array<T>) {
+    open fun freeAll(pooledObjects: KermanArray<T>) {
         val freeObjects = this.freeObjects
         val max = this.max
         var i = 0
