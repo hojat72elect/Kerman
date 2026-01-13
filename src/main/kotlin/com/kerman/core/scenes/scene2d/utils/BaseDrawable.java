@@ -1,0 +1,97 @@
+package com.kerman.core.scenes.scene2d.utils;
+
+import com.kerman.core.graphics.k2d.Batch;
+import com.kerman.core.utils.reflect.ClassReflection;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+/**
+ * Info : This class was inspired by "com.badlogic.gdx.scenes.scene2d.utils.BaseDrawable".
+ * <p>
+ * Drawable that stores the size information but doesn't draw anything.
+ */
+public class BaseDrawable implements Drawable {
+    private @Nullable String name;
+    private float leftWidth, rightWidth, topHeight, bottomHeight, minWidth, minHeight;
+
+    public BaseDrawable() {
+    }
+
+    /**
+     * Creates a new empty drawable with the same sizing information as the specified drawable.
+     */
+    public BaseDrawable(Drawable drawable) {
+        if (drawable instanceof BaseDrawable) name = ((BaseDrawable) drawable).getName();
+        leftWidth = drawable.getLeftWidth();
+        rightWidth = drawable.getRightWidth();
+        topHeight = drawable.getTopHeight();
+        bottomHeight = drawable.getBottomHeight();
+        minWidth = drawable.getMinWidth();
+        minHeight = drawable.getMinHeight();
+    }
+
+    public void draw(@NotNull Batch batch, float x, float y, float width, float height) {
+    }
+
+    public float getLeftWidth() {
+        return leftWidth;
+    }
+
+    public void setLeftWidth(float leftWidth) {
+        this.leftWidth = leftWidth;
+    }
+
+    public float getRightWidth() {
+        return rightWidth;
+    }
+
+    public void setRightWidth(float rightWidth) {
+        this.rightWidth = rightWidth;
+    }
+
+    public float getTopHeight() {
+        return topHeight;
+    }
+
+    public void setTopHeight(float topHeight) {
+        this.topHeight = topHeight;
+    }
+
+    public float getBottomHeight() {
+        return bottomHeight;
+    }
+
+    public void setBottomHeight(float bottomHeight) {
+        this.bottomHeight = bottomHeight;
+    }
+
+    public float getMinWidth() {
+        return minWidth;
+    }
+
+    public void setMinWidth(float minWidth) {
+        this.minWidth = minWidth;
+    }
+
+    public float getMinHeight() {
+        return minHeight;
+    }
+
+    public void setMinHeight(float minHeight) {
+        this.minHeight = minHeight;
+    }
+
+    public @Nullable String getName() {
+        return name;
+    }
+
+    public void setName(@Nullable String name) {
+        this.name = name;
+    }
+
+    public @Nullable String toString() {
+        if (name == null) return ClassReflection.getSimpleName(getClass());
+        return name;
+    }
+}
