@@ -1,0 +1,35 @@
+package com.kerman.core.scenes.scene2d.actions;
+
+/**
+ * Info : This class was inspired by "com.badlogic.gdx.scenes.scene2d.actions.SizeByAction".
+ * <p>
+ * Moves an actor from its current size to a relative size.
+ */
+public class SizeByAction extends RelativeTemporalAction {
+    private float amountWidth, amountHeight;
+
+    protected void updateRelative(float percentDelta) {
+        target.sizeBy(amountWidth * percentDelta, amountHeight * percentDelta);
+    }
+
+    public void setAmount(float width, float height) {
+        amountWidth = width;
+        amountHeight = height;
+    }
+
+    public float getAmountWidth() {
+        return amountWidth;
+    }
+
+    public void setAmountWidth(float width) {
+        amountWidth = width;
+    }
+
+    public float getAmountHeight() {
+        return amountHeight;
+    }
+
+    public void setAmountHeight(float height) {
+        amountHeight = height;
+    }
+}
