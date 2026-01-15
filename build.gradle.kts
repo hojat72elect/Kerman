@@ -19,6 +19,9 @@ dependencies {
     implementation("org.lwjgl:lwjgl")
     implementation("org.lwjgl:lwjgl-opengl")
 
+    // for loading native libraries of different platforms.
+    implementation("com.badlogicgames.gdx:gdx-jnigen-loader:2.5.0")
+
     // natives
     implementation ("org.lwjgl", "lwjgl", classifier = lwjglNatives)
     implementation ("org.lwjgl", "lwjgl-opengl", classifier = lwjglNatives)
