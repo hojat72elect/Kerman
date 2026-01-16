@@ -2,7 +2,6 @@ package com.kerman.core.graphics.k2d;
 
 import com.kerman.core.math.MathUtils;
 import com.kerman.core.utils.KermanArray;
-
 import java.util.Arrays;
 
 /**
