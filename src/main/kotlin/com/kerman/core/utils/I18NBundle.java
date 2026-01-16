@@ -13,7 +13,7 @@ import java.util.Set;
 
 /**
  * Info : This class was inspired by "com.badlogic.gdx.utils.I18NBundle".
- *
+ * <p>
  * A {@code I18NBundle} provides {@code Locale}-specific resources loaded from property files. A bundle contains a number of
  * named resources, whose names and values are {@code Strings}. A bundle may have a parent bundle, and when a resource is not
  * found in a bundle, the parent bundle is searched for the resource. If the fallback mechanism reaches the base bundle and still
