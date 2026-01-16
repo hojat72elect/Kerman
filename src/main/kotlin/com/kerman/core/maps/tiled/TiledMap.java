@@ -1,7 +1,7 @@
 package com.kerman.core.maps.tiled;
 
 import com.kerman.core.assets.AssetManager;
-import com.kerman.core.maps.Map;
+import com.kerman.core.maps.KermanMap;
 import com.kerman.core.utils.Disposable;
 import com.kerman.core.utils.KermanArray;
 
@@ -9,9 +9,9 @@ import com.kerman.core.utils.KermanArray;
  * Info : This class was inspired by "com.badlogic.gdx.maps.tiled.TiledMap".
  * <p>
  * Represents a tiled map, adds the concept of tiles and tilesets.
- * @see Map
+ * @see KermanMap
  */
-public class TiledMap extends Map {
+public class TiledMap extends KermanMap {
     private final TiledMapTileSets tilesets;
     private KermanArray<? extends Disposable> ownedResources;
 

@@ -7,7 +7,7 @@ import java.util.Iterator;
 /**
  * Info : This class was inspired by "com.badlogic.gdx.maps.MapLayers".
  * <p>
- * Ordered list of {@link MapLayer} instances owned by a {@link Map}
+ * Ordered list of {@link MapLayer} instances owned by a {@link KermanMap}
  */
 public class MapLayers implements Iterable<MapLayer> {
     private final KermanArray<MapLayer> layers = new KermanArray<>();

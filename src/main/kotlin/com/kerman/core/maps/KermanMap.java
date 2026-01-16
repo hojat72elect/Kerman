@@ -31,14 +31,14 @@ import com.kerman.core.utils.Disposable;
  * <p>
  * Maps must be disposed through a call to {@link #dispose()} when no longer used.
  */
-public class Map implements Disposable {
+public class KermanMap implements Disposable {
     private final MapLayers layers = new MapLayers();
     private final MapProperties properties = new MapProperties();
 
     /**
      * Creates empty map
      */
-    public Map() {
+    public KermanMap() {
 
     }
 
