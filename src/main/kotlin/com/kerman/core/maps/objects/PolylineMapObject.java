@@ -4,8 +4,7 @@ import com.kerman.core.maps.MapObject;
 import com.kerman.core.math.Polyline;
 
 /** Info : This class was inspired by "com.badlogic.gdx.maps.objects.PolylineMapObject".
- *
- *
+ * <p>
  * Represents {@link Polyline} map objects.
  */
 public class PolylineMapObject extends MapObject {
