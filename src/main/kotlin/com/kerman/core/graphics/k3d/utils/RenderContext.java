@@ -5,7 +5,7 @@ import com.kerman.core.graphics.GLES20;
 
 /**
  * Info : This class was inspired by "com.badlogic.gdx.graphics.g3d.utils.RenderContext".
- *
+ * <p>
  * Manages OpenGL state and tries to reduce state changes. Uses a {@link TextureBinder} to reduce texture binds as well. Call
  * {@link #begin()} to setup the context, call {@link #end()} to undo all state changes. Use the setters to change state, use
  * {@link #textureBinder} to bind textures.
