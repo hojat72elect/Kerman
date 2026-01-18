@@ -5,7 +5,7 @@ import com.kerman.core.graphics.k3d.Shader
 import com.kerman.core.utils.Disposable
 
 /**
- * Info ; This interface was inspired by "com.badlogic.gdx.graphics.g3d.utils.ShaderProvider".
+ * Info : This interface was inspired by "com.badlogic.gdx.graphics.g3d.utils.ShaderProvider".
  *
  * Returns [Shader] instances for a [Renderable] on request. Also responsible for disposing of any created
  * [Shader] instances on a call to [Disposable.dispose].
