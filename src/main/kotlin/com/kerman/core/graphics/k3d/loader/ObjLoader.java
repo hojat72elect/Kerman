@@ -39,7 +39,7 @@ import java.io.InputStreamReader;
  * <p>
  * This {@link ModelLoader} can be used to load very basic models without having to convert them to a more suitable format.
  * Therefore, it can be used for educational purposes and to quickly test a basic model, but should not be used in production.
- * Instead, use {@link G3dModelLoader}.
+ * Instead, use {@link K3dModelLoader}.
  * </p>
  * <p>
  * Because of above reasons, when an OBJ file is loaded using this loader, it will log and error. To prevent this error from being
