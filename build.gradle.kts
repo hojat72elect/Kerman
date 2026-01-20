@@ -18,6 +18,8 @@ dependencies {
     implementation(platform("org.lwjgl:lwjgl-bom:$lwjglVersion"))
     implementation("org.lwjgl:lwjgl")
     implementation("org.lwjgl:lwjgl-opengl")
+    implementation("org.lwjgl:lwjgl-glfw")
+
 
     // for loading native libraries of different platforms.
     implementation("com.badlogicgames.gdx:gdx-jnigen-loader:2.5.0")
