@@ -231,8 +231,7 @@ public final class VertexAttributes implements Iterable<VertexAttribute>, Compar
 
     /**
      * The usage of a vertex attribute.
-     *
-     *      */
+     */
     public static final class Usage {
         public static final int Position = 1;
         public static final int ColorUnpacked = 2;
