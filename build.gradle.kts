@@ -26,6 +26,9 @@ dependencies {
     // jlayer
     implementation("com.badlogicgames.jlayer:jlayer:1.0.1-gdx")
 
+    // jorbis + jogg
+    implementation("org.jcraft:jorbis:0.0.17")
+
     // for loading native libraries of different platforms.
     implementation("com.badlogicgames.gdx:gdx-jnigen-loader:2.5.0")
 
