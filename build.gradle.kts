@@ -20,6 +20,7 @@ dependencies {
     implementation("org.lwjgl:lwjgl")
     implementation("org.lwjgl:lwjgl-opengl")
     implementation("org.lwjgl:lwjgl-glfw")
+    implementation("org.lwjgl:lwjgl-openal")
 
     // jlayer
     implementation("com.badlogicgames.jlayer:jlayer:1.0.1-gdx")
