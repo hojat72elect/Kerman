@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.2.21"
+    application
 }
 
 group = "com.kerman"
@@ -43,6 +44,18 @@ dependencies {
 
 kotlin {
     jvmToolchain(17)
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs("src/main/kotlin")
+        }
+    }
+}
+
+application {
+    mainClass.set("com.kerman.examples.sokoban.lwjgl3.Lwjgl3LauncherKt")
 }
 
 tasks.test {

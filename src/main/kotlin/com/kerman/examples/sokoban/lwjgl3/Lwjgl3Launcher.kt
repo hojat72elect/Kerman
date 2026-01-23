@@ -22,3 +22,4 @@ fun main() {
 
     Lwjgl3Application(SokobanGame(), configuration)
 }
+
